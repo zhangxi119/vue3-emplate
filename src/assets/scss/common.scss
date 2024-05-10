@@ -1,0 +1,20 @@
+:root {
+  --3d-bg-primary: #0586FE;
+  --3d-chart-z-index: 30;
+  --3d-text-primary-color: #152332;
+  --3d-white-color: rgba(255, 255, 255, 0.40);
+  --3d-light-bg-color: #D2E7FE;
+  --3d-text-error-color: #E6492D;
+  --3d-text-warning-color: #FFB155;
+}
+
+body {
+  font-family: PingFang SC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

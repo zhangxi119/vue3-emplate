@@ -1,0 +1,33 @@
+build_image: acr.ops.yunlizhi.cn/private-img/devops/config-management.git/ylz-compile-node:16.15.1
+
+builds:
+  - cmds: |-
+      set -e
+      yarn install
+      yarn build:qa
+      ls -lh dist
+      tar -czf dist.tar.gz dist
+    runtime_image_src_artifacts: dist.tar.gz
+    runtime_image_dest: /opt/
+    runtime_image_env: ops
+    service_name: fe-official-website-cp
+  - cmds: |-
+      set -e
+      yarn install
+      yarn build:qa
+      ls -lh dist
+      tar -czf dist.tar.gz dist
+    runtime_image_src_artifacts: dist.tar.gz
+    runtime_image_dest: /opt/
+    runtime_image_env: qa
+    service_name: fe-official-website-cp
+  - cmds: |-
+      set -e
+      yarn install
+      yarn build:prod
+      ls -lh dist
+      tar -czf dist.tar.gz dist
+    runtime_image_src_artifacts: dist.tar.gz
+    runtime_image_dest: /opt/
+    runtime_image_env: prod
+    service_name: fe-official-website-cp   

@@ -1,0 +1,49 @@
+service:
+  type: ClusterIP
+  port: 80
+
+hostName: 3d-demo.dev.yunlizhi.net
+
+configs:
+  enabled: true
+  # config inject type: env, file
+  type: file
+  path: /etc/nginx/conf.d # config mount path when type is file
+  data:
+    default.conf: |
+      server {
+          listen  80;  #负载均衡里的目标群组 配置的后端为8000
+          server_name  localhost;
+        #   if ($host != 'mp.yunlizhi.cn') {
+        #     return 403;
+        #   }
+
+          # access_log  /data/logs/nginx/fe-customer-manage-admin.access.log  main;
+          # access_log  /data/logs/nginx/fe-customer-manage-admin.access.log  customized_ops;
+          # error_log   /data/logs/nginx/fe-customer-manage-admin.error.log;
+          root /opt/dist;
+          index index.html;
+
+          location = /index.html {
+                  add_header Cache-Control "no-store";
+          }
+          
+
+          location /
+          {
+                  expires -1;
+          }
+          location ~ \.(jpg|png|jpeg|gif)$  {
+                  expires 30d;
+                  root /opt/dist/;
+          }
+
+          location ~ \.(js|css)$  {
+                  expires 2h;
+                  root   /opt/dist/;
+          }
+
+          location ^~ /.git {
+                  deny all;
+          }
+      }

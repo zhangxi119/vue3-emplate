@@ -1,0 +1,27 @@
+
+@forward 'yun-design/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': 
+      (
+        'base': #0586FE,
+      )
+  )
+);
+
+      
+@use "yun-design/theme-chalk/src/var.scss" as *;
+
+:root {
+  --el-input-bg-color: rgba(255, 255, 255, 0.40);
+  --el-color-primary-light-10: #f4faff;
+  .el-scrollbar {
+    --el-scrollbar-bg-color:rgba(5, 134, 254, 0.50) !important;
+    --el-scrollbar-hover-bg-color:rgba(5, 134, 254, 0.50) !important;
+  }
+  .el-input {
+    --el-input-bg-color: rgba(255, 255, 255, 0.40);
+  }
+  .el-button {
+    --el-button-bg-color: rgba(255, 255, 255, 0.40);
+  }
+}

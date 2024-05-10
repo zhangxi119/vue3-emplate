@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "esnees2022xt",
+    "useDefineForClassFields": true,
+    "module": "es2022",
+    "moduleResolution": "node",
+    "strict": false,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "plugins": [{"name": "typescript-plugin-css-modules"}],
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": ["es2022", "dom"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/auto-imports.d.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

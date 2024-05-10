@@ -1,0 +1,14 @@
+include:
+  - project: 'devops/gitlabci-scaffold-pub'
+    file: '/node/branch-trigger/node-16-15-1.yml'
+
+variables:
+  RUN: "true"
+  INSTALL_COMMAND: 'yarn install'
+  COMPILE_COMMAND: "yarn build:dev"
+  QA_COMPILE_COMMAND: "yarn build:qa"
+  REG_COMPILE_COMMAND: "yarn build:reg"
+  PROD_COMPILE_COMMAND: "yarn build:prod"
+  DEPLOY_ENV: dev # 部署环境
+  UI_ARTIFACT: dist.tar  #构建工件的目录，项目根目录的相对路径
+  FORCE_CI_VALUES_HOSTS: 'true'
